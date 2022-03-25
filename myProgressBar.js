@@ -1,3 +1,6 @@
+const child_process = require('child_process');
+
+
 function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=3) {
     // style
     let styleList = [
@@ -25,6 +28,12 @@ function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, b
     // process complete actions
     if (currentStep === totalSteps) {
         console.log("Task Completed!!");
+
+        // sound notification
+        let notificationMedia = "./resources/Alarm05.wav";
+        let notificationCommand = `powershell.exe -c (New-Object Media.SoundPlayer "${notificationMedia}").PlaySync();`;
+
+        child_process.exec(notificationCommand);
     }
 
     return currentStep;
