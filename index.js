@@ -8,7 +8,7 @@ let startTime = new Date();
 
 console.time("total system time");
 for (i = 0; i < loop_len; ++i) {
-    counter = progressBar.myProgressBar(counter, loop_len, startTime);
+    counter = progressBar.myProgressBar(counter, loop_len, startTime, 1, 50, 4);
 
     if (counter < resumeFrom) {
         console.log("> skipping", counter);
