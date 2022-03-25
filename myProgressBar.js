@@ -1,7 +1,8 @@
+const process = require('process');
 const child_process = require('child_process');
 
 
-function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=3) {
+function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=3, notify=true) {
     // style
     let styleList = [
         { pending: ' ', complete: '.' },
@@ -29,11 +30,22 @@ function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, b
     if (currentStep === totalSteps) {
         console.log("Task Completed!!");
 
-        // sound notification
-        let notificationMedia = "./resources/Alarm05.wav";
-        let notificationCommand = `powershell.exe -c (New-Object Media.SoundPlayer "${notificationMedia}").PlaySync();`;
+        if (notify) {
+            // sound notification
+            let notificationMedia = "./resources/Alarm05.wav";
+            let notificationCommand;
+            if (process.platform === "win32") {
+                notificationCommand = `powershell.exe -c (New-Object Media.SoundPlayer "${notificationMedia}").PlaySync();`;
+            } else if (process.platform === "linux") {
+                notificationCommand = `paplay ${notificationMedia}`;
+            } else if (process.platform === "darwin") {
+                notificationCommand = "";   // TODO: support for macOs
+            } else {
+                notificationCommand = "";
+            }
 
-        child_process.exec(notificationCommand);
+            child_process.exec(notificationCommand);
+        }
     }
 
     return currentStep;
