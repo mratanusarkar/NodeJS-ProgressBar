@@ -13,7 +13,7 @@ const timeConverter = require('./utils/time-converter');
  * @param {Boolean} notify set true for sound alert notofocation when complete. false to turn it off
  * @returns {Number} currentStep++
  */
-function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=true) {
+function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=true) {
     // style
     let styleList = [
         { pending: ' ', complete: '.' },
@@ -63,4 +63,4 @@ function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, b
 }
 
 
-module.exports.myProgressBar = myProgressBar;
+module.exports.progressBar = progressBar;
