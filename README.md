@@ -10,6 +10,8 @@ If you are tired of sitting and waiting for these processes and not knowing when
 If you want to have a metrics that will show you the current iteration number of the loop, eta of the job, time elapsed, time to finish, estimated total time <br>
 along with a cool cli progress bar, and even notify you with an alert sound when the job ends, then you are at the right place!
 
+Here is a running demo of the cli progress bar below: <br>
+![running demo](./assets/style04-running-demo.gif)
 
 # Features
 The function progressBar() can be applied to any deterministic loop with finite and determined loop_len. <br>
@@ -21,6 +23,24 @@ It has the following parameters and features:
 - **barLength**: the length of the progress bar. default: 50
 - **style**: choose styles from 0 - 4
 - **notify**: set true for sound alert notofocation when complete. false to turn it off
+
+Here are some of the ascii styles you can choose from:
+
+1. style=0<br>
+![style 0](./assets/style00.png)
+
+2. style=1<br>
+![style 1](./assets/style01.png)
+
+3. style=2<br>
+![style 2](./assets/style02.png)
+
+4. style=3<br>
+![style 3](./assets/style03.png)
+
+5. style=4<br>
+![style 4](./assets/style04.png)
+
 
 # Usage
 ```node
