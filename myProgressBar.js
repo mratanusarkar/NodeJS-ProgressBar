@@ -28,14 +28,14 @@ function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, b
 
     currentStep++;
 
-    let timeElapsed = (new Date().getTime() - startTime.getTime()) / 1000; 
+    let timeElapsed = (new Date().getTime() - startTime.getTime()); 
     let progress = Math.round(currentStep * barLength * 1.0 / totalSteps);
     let percent = (currentStep * 100.0 / totalSteps).toFixed(2);
-    let estimatedTotalTime = (timeElapsed * totalSteps * 1.0 / currentStep).toFixed(3);
+    let estimatedTotalTime = (timeElapsed * totalSteps * 1.0 / currentStep);
 
-    console.log(`[${styleList[style].complete.repeat(progress)}${styleList[style].pending.repeat(barLength - progress)}] ${percent} % (${(currentStep / timeElapsed).toFixed(2)} iter/sec)`);
+    console.log(`[${styleList[style].complete.repeat(progress)}${styleList[style].pending.repeat(barLength - progress)}] ${percent} % (${(currentStep / (timeElapsed / 1000)).toFixed(2)} iter/sec)`);
     console.log(`> Iteration: ${currentStep}/${totalSteps} > Completed: ${percent}% > Time Elapsed: ${timeConverter.toHumanTime(timeElapsed)}`);
-    console.log(`> Estimated Time to Completion: ${timeConverter.toHumanTime((estimatedTotalTime - timeElapsed).toFixed(3))} > Estimated Total Time: ${timeConverter.toHumanTime(estimatedTotalTime)}`);
+    console.log(`> Estimated Time to Completion: ${timeConverter.toHumanTime(estimatedTotalTime - timeElapsed)} > Estimated Total Time: ${timeConverter.toHumanTime(estimatedTotalTime)}`);
 
     // process complete actions
     if (currentStep === totalSteps) {
