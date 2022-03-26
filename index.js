@@ -1,4 +1,4 @@
-const progressBar = require("./myProgressBar");
+const progressBar = require("./progress-bar");
 
 // Main for testing the Progress Bar!
 let loop_len = 100;

@@ -1,6 +1,6 @@
 const process = require('process');
 const child_process = require('child_process');
-const timeConverter = require('./utils/myTimeConverter');
+const timeConverter = require('./utils/time-converter');
 
 /**
  * A Basic CLI Progress bar to track progress in a long running job in a loop
