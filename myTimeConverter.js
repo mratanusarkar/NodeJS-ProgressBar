@@ -1,3 +1,9 @@
+/**
+ * Function that takes in a Time in ms and returns a String which represents the time in human readable format
+ * @param {Number} milliseconds time in milliseconds
+ * @param {Number} toDecimalPlace significant figure upto decimal places for ms. default: 3
+ * @returns {String} time in human readable format in terms of days, hours, minutes, seconds and milliseconds
+ */
 function toHumanTime(milliseconds, toDecimalPlace=3) {
 
     if (milliseconds === 0) { return "0ms"; }
