@@ -1,4 +1,9 @@
-function toHumanTime(milliseconds) {
+function toHumanTime(milliseconds, toDecimalPlace=3) {
+
+    if (milliseconds === 0) { return "0ms"; }
+    if (milliseconds === NaN) { return "NaN"; }
+    if (milliseconds === Infinity) { return "Infinity"; }
+    if (!milliseconds) { return "NaN"; }
 
     let days = ~~(milliseconds / (24 * 60 * 60 * 1000));
     milliseconds = milliseconds % (24 * 60 * 60 * 1000);
@@ -12,7 +17,7 @@ function toHumanTime(milliseconds) {
     let seconds = ~~(milliseconds / (1000));
     milliseconds = milliseconds % (1000);
 
-    let ms = milliseconds
+    let ms = +milliseconds.toFixed(toDecimalPlace)
 
     let humanReadableString = "";
 
