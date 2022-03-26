@@ -1,5 +1,6 @@
 const process = require('process');
 const child_process = require('child_process');
+const timeConverter = require('./myTimeConverter');
 
 /**
  * A Basic CLI Progress bar to track progress in a long running job in a loop
@@ -33,8 +34,8 @@ function myProgressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, b
     let estimatedTotalTime = (timeElapsed * totalSteps * 1.0 / currentStep).toFixed(3);
 
     console.log(`[${styleList[style].complete.repeat(progress)}${styleList[style].pending.repeat(barLength - progress)}] ${percent} % (${(currentStep / timeElapsed).toFixed(2)} iter/sec)`);
-    console.log(`> Iteration: ${currentStep}/${totalSteps} > Completed: ${percent}% > Time Elapsed: ${timeElapsed}sec > Estimated Time to Completion: ${(estimatedTotalTime - timeElapsed).toFixed(3)}sec`);
-    console.log(`> Estimated Total Time: ${estimatedTotalTime}sec = ${(estimatedTotalTime/60).toFixed(3)}min = ${(estimatedTotalTime/3600).toFixed(3)}hr`);
+    console.log(`> Iteration: ${currentStep}/${totalSteps} > Completed: ${percent}% > Time Elapsed: ${timeConverter.toHumanTime(timeElapsed)}`);
+    console.log(`> Estimated Time to Completion: ${timeConverter.toHumanTime((estimatedTotalTime - timeElapsed).toFixed(3))} > Estimated Total Time: ${timeConverter.toHumanTime(estimatedTotalTime)}`);
 
     // process complete actions
     if (currentStep === totalSteps) {
