@@ -7,10 +7,10 @@ const timeConverter = require('./utils/time-converter');
  * @param {Number} currentStep the current iteration number in the loop. eg: i, index or count
  * @param {Number} totalSteps total number of steps that the loop will run for
  * @param {Date} startTime pass the start time of the loop. It should be a Date object. eg: 'new Date()'
- * @param {Number} clearScreenEvery console to be cleared off every ith itheration of this value. default: 1
+ * @param {Number} clearScreenEvery console to be cleared off every ith iteration of this value. default: 1
  * @param {Number} barLength the length of the progress bar. default: 50
  * @param {Number} style choose styles from 0 - 4
- * @param {Boolean} notify set true for sound alert notofocation when complete. false to turn it off
+ * @param {Boolean} notify set true for sound alert notification when complete. false to turn it off
  * @returns {Number} currentStep++
  */
 function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=true) {
