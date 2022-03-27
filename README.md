@@ -1,5 +1,7 @@
 # NodeJS-ProgressBar
+[![NPM version](https://img.shields.io/npm/v/progress-bar-cli)](https://www.npmjs.com/package/progress-bar-cli)
 [![HitCount](https://hits.dwyl.com/mratanusarkar/NodeJS-ProgressBar.svg?style=flat)](http://hits.dwyl.com/mratanusarkar/NodeJS-ProgressBar)
+[![MIT License](https://img.shields.io/npm/l/progress-bar-cli)](LICENSE)
 
 CLI Progress Bar implemented in NodeJS to track Time, ETA and Steps for any long running jobs in any loops in JS, NodeJS code
 
@@ -175,7 +177,7 @@ console.timeEnd("total system time");
 
 # Planned features for upcoming version
 TODO: add examples in readme for forEach, for/in, for/of, do/while and other types of loops in js and node <br>
-TODO: add support for async loops in js and node
-TODO: add support for macOS
-TODO: make the cli ui even better
+TODO: add support for async loops in js and node <br>
+TODO: add support for macOS <br>
+TODO: make the cli ui even better <br>
 
