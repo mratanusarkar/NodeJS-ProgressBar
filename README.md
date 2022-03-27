@@ -11,18 +11,29 @@ If you want to have a metrics that will show you the current iteration number of
 along with a cool cli progress bar, and even notify you with an alert sound when the job ends, then you are at the right place!
 
 Here is a running demo of the cli progress bar below: <br>
+
 ![running demo](./assets/style04-running-demo.gif)
+
 
 # Features
 The function progressBar() can be applied to any deterministic loop with finite and determined loop_len. <br>
-It has the following parameters and features:
-- **currentStep**: the current iteration number in the loop. eg: i, index or count
-- **totalSteps**: total number of steps that the loop will run for
-- **startTime**: pass the start time of the loop. It should be a Date object. eg: 'new Date()'
-- **clearScreenEvery**: console to be cleared off every ith itheration of this value. default: 1
-- **barLength**: the length of the progress bar. default: 50
-- **style**: choose styles from 0 - 4
-- **notify**: set true for sound alert notofocation when complete. false to turn it off
+
+It has the following features:
+- you can change and modify the progress bar length
+- you can choose from the list of available cli ascii styles for the progress bar
+- you can resume the progress from the ith iteration (see examples)
+- you can set notify for the progress bar to alert and notify you with sound when the task is complete
+- you can choose to print out every iteration of the progress bar without clearing out the console screen
+- all time information in the progress bar matrices are converted and printed in human readable time
+
+Available matrices:
+  - iteration (current-step / total-step)
+  - number of iter / sec
+  - percentage completion
+  - time elapsed
+  - estimated time to completion
+  - estimated total time
+
 
 Here are some of the ascii styles you can choose from:
 
@@ -42,9 +53,15 @@ Here are some of the ascii styles you can choose from:
 ![style 4](./assets/style04.png)
 
 
+# Installation
+```cmd
+npm i progress-bar-cli
+```
+
+
 # Usage
 ```node
-const progressBar = require("./progress-bar");
+const progressBar = require("progress-bar-cli");
 
 let loop_len = 1000;
 let startTime = new Date();
@@ -65,7 +82,7 @@ If the job get's haulted in the middle or if the Job was multiple API calls in a
 you can trace the last iteration of the running job from log files (if you are maintaining any), and resume the job from that ith iteration using the following code:
 
 ```node
-const progressBar = require("./progress-bar");
+const progressBar = require("progress-bar-cli");
 
 let resumeFrom = 50;
 let loop_len = 1000;
@@ -89,12 +106,27 @@ for (i = 0; i < loop_len; ++i) {
 ```
 
 
+# Function Parameters
+Parameter Name | Data Type | default value | description
+---------------|-----------|---------------|-------------
+currentStep | {Number} | *required | the current iteration number in the loop. eg: i, index or count
+totalSteps | {Number} | *required | total number of steps that the loop will run for.
+startTime | {Date} | *required | pass the start time of the loop. It should be a Date object. eg: 'new Date()'
+clearScreenEvery | {Number} | 1 | console to be cleared off every ith iteration of this value.
+barLength | {Number} | 50 | the length of the progress bar.
+style | {Number} | 4 | choose styles from 0 - 4.
+notify | {Boolean} | true | set true for sound alert notification when complete. false to turn it off
+**function return** | {Number} | NA | currentStep++
+
+**Please Note**: * are the three required parameters for the function
+
+
 # Example
 Below are some of the example codes where progressBar is used.
 
 1. using for loop:
 ```node
-const progressBar = require("./progress-bar");
+const progressBar = require("progress-bar-cli");
 
 // Main for testing the Progress Bar!
 let loop_len = 100;
@@ -121,7 +153,7 @@ console.timeEnd("total system time");
 
 2. using while loop
 ```node
-const progressBar = require("./progress-bar");
+const progressBar = require("progress-bar-cli");
 
 // Main for testing the Progress Bar!
 let loop_len = 100;
@@ -140,6 +172,10 @@ console.timeEnd("total system time");
 
 ```
 
-TODO: add examples for forEach, for/in, for/of, do/while and other types of loops in js and node <br>
+
+# Planned features for upcoming version
+TODO: add examples in readme for forEach, for/in, for/of, do/while and other types of loops in js and node <br>
 TODO: add support for async loops in js and node
+TODO: add support for macOS
+TODO: make the cli ui even better
 
