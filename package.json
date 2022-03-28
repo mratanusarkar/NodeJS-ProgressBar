@@ -28,7 +28,8 @@
     "notification",
     "js",
     "node",
-    "nodejs"
+    "nodejs",
+    "javascript"
   ],
   "author": "Atanu Sarkar <mratanusarkar@gmail.com> (https://github.com/mratanusarkar)",
   "license": "MIT",
