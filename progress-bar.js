@@ -8,11 +8,11 @@ const soundAlert = require('./utils/sound-alert');
  * @param {Date} startTime pass the start time of the loop. It should be a Date object. eg: 'new Date()'
  * @param {Number} clearScreenEvery console to be cleared off every ith iteration of this value. default: 1
  * @param {Number} barLength the length of the progress bar. default: 50
- * @param {Number} style choose styles from 0 - 4
- * @param {Boolean} notify set true for sound alert notification when complete. false to turn it off
+ * @param {Number} style choose styles from 0 - 4. default: 4
+ * @param {Boolean} notify set true for sound alert notification when complete. default: false
  * @returns {Number} currentStep++
  */
-function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=true) {
+function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=false) {
     // style
     let styleList = [
         { pending: ' ', complete: '.' },
