@@ -1,6 +1,5 @@
-const process = require('process');
-const child_process = require('child_process');
 const timeConverter = require('./utils/time-converter');
+const soundAlert = require('./utils/sound-alert');
 
 /**
  * A Basic CLI Progress bar to track progress in a long running job in a loop
@@ -9,11 +8,11 @@ const timeConverter = require('./utils/time-converter');
  * @param {Date} startTime pass the start time of the loop. It should be a Date object. eg: 'new Date()'
  * @param {Number} clearScreenEvery console to be cleared off every ith iteration of this value. default: 1
  * @param {Number} barLength the length of the progress bar. default: 50
- * @param {Number} style choose styles from 0 - 4
- * @param {Boolean} notify set true for sound alert notification when complete. false to turn it off
+ * @param {Number} style choose styles from 0 - 4. default: 4
+ * @param {Boolean} notify set true for sound alert notification when complete. default: false
  * @returns {Number} currentStep++
  */
-function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=true) {
+function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=false) {
     // style
     let styleList = [
         { pending: ' ', complete: '.' },
@@ -40,23 +39,7 @@ function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, bar
     // process complete actions
     if (currentStep === totalSteps) {
         console.log("Task Completed!!");
-
-        if (notify) {
-            // sound notification
-            let notificationMedia = "./resources/Alarm05.wav";
-            let notificationCommand;
-            if (process.platform === "win32") {
-                notificationCommand = `powershell.exe -c (New-Object Media.SoundPlayer "${notificationMedia}").PlaySync();`;
-            } else if (process.platform === "linux") {
-                notificationCommand = `paplay ${notificationMedia}`;
-            } else if (process.platform === "darwin") {
-                notificationCommand = "";   // TODO: support for macOs
-            } else {
-                notificationCommand = "";
-            }
-
-            child_process.exec(notificationCommand);
-        }
+        if (notify) { soundAlert.notify() }
     }
 
     return currentStep;
