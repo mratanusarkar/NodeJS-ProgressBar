@@ -1,6 +1,6 @@
 {
   "name": "progress-bar-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A CLI ProgressBar for nodeJS and JS to monitor any long running job/process in a loop and alert the user with sound notification when the task ends.",
   "main": "progress-bar.js",
   "scripts": {
