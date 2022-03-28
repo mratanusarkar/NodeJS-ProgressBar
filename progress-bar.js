@@ -1,6 +1,5 @@
-const process = require('process');
-const child_process = require('child_process');
 const timeConverter = require('./utils/time-converter');
+const soundAlert = require('./utils/sound-alert');
 
 /**
  * A Basic CLI Progress bar to track progress in a long running job in a loop
@@ -40,23 +39,7 @@ function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, bar
     // process complete actions
     if (currentStep === totalSteps) {
         console.log("Task Completed!!");
-
-        if (notify) {
-            // sound notification
-            let notificationMedia = "./resources/Alarm05.wav";
-            let notificationCommand;
-            if (process.platform === "win32") {
-                notificationCommand = `powershell.exe -c (New-Object Media.SoundPlayer "${notificationMedia}").PlaySync();`;
-            } else if (process.platform === "linux") {
-                notificationCommand = `paplay ${notificationMedia}`;
-            } else if (process.platform === "darwin") {
-                notificationCommand = "";   // TODO: support for macOs
-            } else {
-                notificationCommand = "";
-            }
-
-            child_process.exec(notificationCommand);
-        }
+        if (notify) { soundAlert.notify() }
     }
 
     return currentStep;
