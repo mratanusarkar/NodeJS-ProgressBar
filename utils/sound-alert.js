@@ -15,7 +15,7 @@ function notify() {
     } else if (process.platform === "linux") {
         notificationCommand = `paplay ${notificationMedia}`;
     } else if (process.platform === "darwin") {
-        notificationCommand = "";   // TODO: support for macOs
+        notificationCommand = `afplay ${notificationMedia}`;
     } else {
         notificationCommand = "";
     }
