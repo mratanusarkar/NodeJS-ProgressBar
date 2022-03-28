@@ -7,7 +7,6 @@ function notify() {
 
     // sound notification
     let notificationMedia = path.resolve(__dirname, "../resources/Alarm05.wav");
-    console.log(notificationMedia);
     let notificationCommand;
 
     if (process.platform === "win32") {
