@@ -1,16 +1,14 @@
 # NodeJS-ProgressBar
 [![NPM version](https://img.shields.io/npm/v/progress-bar-cli)](https://www.npmjs.com/package/progress-bar-cli)
 [![HitCount](https://hits.dwyl.com/mratanusarkar/NodeJS-ProgressBar.svg?style=flat)](http://hits.dwyl.com/mratanusarkar/NodeJS-ProgressBar)
+[![NPM downloads](https://img.shields.io/npm/dt/progress-bar-cli)](https://npmcharts.com/compare/progress-bar-cli?minimal=true)
 [![MIT License](https://img.shields.io/npm/l/progress-bar-cli)](LICENSE)
 
-CLI Progress Bar implemented in NodeJS to track Time, ETA and Steps for any long running jobs in any loops in JS, NodeJS code
+CLI Progress Bar for NodeJS and JavaScript to track Time, ETA and Steps for any long running jobs in any loops in JS, NodeJS code
 
-Did you ever encounter long running processes or jobs running inside loops in javascript or nodejs? <br>
-Did you ever encounter tasks where nodejs scripts are running in a server, making multiple api calls in long running loops?
+Did you ever encounter long running processes or jobs running inside loops in javascript or nodejs? Did you ever encounter tasks where nodejs scripts are running in a server, making multiple api calls in long running loops?
 
-If you are tired of sitting and waiting for these processes and not knowing when this kind of job/loop will end <br>
-If you want to have a metrics that will show you the current iteration number of the loop, eta of the job, time elapsed, time to finish, estimated total time <br>
-along with a cool cli progress bar, and even notify you with an alert sound when the job ends, then you are at the right place!
+If you are tired of sitting and waiting for these processes and not knowing when this kind of job/loop will end. If you want to have a metrics that will show you the current iteration number of the loop, eta of the job, time elapsed, time to finish, estimated total time along with a cool cli progress bar, and even notify you with an alert sound when the job ends... then you are at the right place!
 
 Here is a running demo of the cli progress bar below: <br>
 
