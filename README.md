@@ -16,7 +16,7 @@ Here is a running demo of the cli progress bar below: <br>
 
 
 # Features
-The function progressBar() can be applied to any deterministic loop with finite and determined loop_len. <br>
+The function progressBar() can be applied to any determinate loop with finite and determined loop_len. <br>
 
 It has the following features:
 - you can change and modify the progress bar length
@@ -115,7 +115,7 @@ startTime | {Date} | *required | pass the start time of the loop. It should be a
 clearScreenEvery | {Number} | 1 | console to be cleared off every ith iteration of this value.
 barLength | {Number} | 50 | the length of the progress bar.
 style | {Number} | 4 | choose styles from 0 - 4.
-notify | {Boolean} | true | set true for sound alert notification when complete. false to turn it off
+notify | {Boolean} | false | set true for sound alert notification when complete. false to turn it off
 **function return** | {Number} | NA | currentStep++
 
 **Please Note**: * are the three required parameters for the function
@@ -176,6 +176,9 @@ console.timeEnd("total system time");
 # Planned features for upcoming version
 TODO: add examples in readme for forEach, for/in, for/of, do/while and other types of loops in js and node <br>
 TODO: add support for async loops in js and node <br>
-TODO: add support for macOS <br>
-TODO: make the cli ui even better <br>
-
+TODO: add support for Indeterminate loops in js and node <br>
+TODO: add features to make the cli UI even better <br>
+TODO: add color and spinner if the running console/cli supports colorization <br>
+TODO: improve the sound alert and support for all OS without any package dependency <br>
+TODO: replace sound alert system to something different and useful (based on community feedback!) <br>
+(as the sound feature is not that useful for systems running in server, vm or pipeline based applications)
