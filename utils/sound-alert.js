@@ -10,11 +10,11 @@ function notify(audioFilePath) {
     let notificationCommand;
 
     if (process.platform === "win32") {
-        notificationCommand = `powershell.exe -c (New-Object Media.SoundPlayer "${notificationMedia}").PlaySync();`;
+        notificationCommand = notificationMedia ? `powershell.exe -c (New-Object Media.SoundPlayer "${notificationMedia}").PlaySync();` : "rundll32 user32.dll, MessageBeep"
     } else if (process.platform === "linux") {
-        notificationCommand = `paplay ${notificationMedia}`;
+        notificationCommand = notificationMedia ? `paplay ${notificationMedia}` : "echo -ne '\007'"
     } else if (process.platform === "darwin") {
-        notificationCommand = `afplay ${notificationMedia}`;
+        notificationCommand = notificationMedia ? `afplay ${notificationMedia}` : "tput bel"
     } else {
         notificationCommand = "";
     }
