@@ -3,10 +3,10 @@ const process = require('process');
 const child_process = require('child_process');
 
 
-function notify() {
+function notify(audioFilePath) {
 
     // sound notification
-    let notificationMedia = path.resolve(__dirname, "../resources/Alarm05.wav");
+    let notificationMedia = audioFilePath ? path.resolve(audioFilePath) : "";
     let notificationCommand;
 
     if (process.platform === "win32") {

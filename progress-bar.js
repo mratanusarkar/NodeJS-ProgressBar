@@ -10,9 +10,10 @@ const soundAlert = require('./utils/sound-alert');
  * @param {Number} barLength the length of the progress bar. default: 50
  * @param {Number} style choose styles from 0 - 4. default: 4
  * @param {Boolean} notify set true for sound alert notification when complete. default: false
+ * @param {String} audioFilePath path to audio file to be used as a notification alert sound, when notify is true
  * @returns {Number} currentStep++
  */
-function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=false) {
+function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, barLength=50, style=4, notify=false, audioFilePath="") {
     // style
     let styleList = [
         { pending: ' ', complete: '.' },
@@ -39,7 +40,7 @@ function progressBar(currentStep, totalSteps, startTime, clearScreenEvery=1, bar
     // process complete actions
     if (currentStep === totalSteps) {
         console.log("Task Completed!!");
-        if (notify) { soundAlert.notify() }
+        if (notify) { soundAlert.notify(audioFilePath) }
     }
 
     return currentStep;
