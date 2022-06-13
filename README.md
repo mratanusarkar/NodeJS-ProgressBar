@@ -116,6 +116,7 @@ clearScreenEvery | {Number} | 1 | console to be cleared off every ith iteration 
 barLength | {Number} | 50 | the length of the progress bar.
 style | {Number} | 4 | choose styles from 0 - 4.
 notify | {Boolean} | false | set true for sound alert notification when complete. false to turn it off
+audioFilePath | {String} | "" | path to audio file, to be used as a notification alert sound, when notify is true
 **function return** | {Number} | NA | currentStep++
 
 **Please Note**: * are the three required parameters for the function
@@ -173,12 +174,16 @@ console.timeEnd("total system time");
 ```
 
 
-# Planned features for upcoming version
-TODO: add examples in readme for forEach, for/in, for/of, do/while and other types of loops in js and node <br>
-TODO: add support for async loops in js and node <br>
-TODO: add support for Indeterminate loops in js and node <br>
-TODO: add features to make the cli UI even better <br>
-TODO: add color and spinner if the running console/cli supports colorization <br>
-TODO: improve the sound alert and support for all OS without any package dependency <br>
-TODO: replace sound alert system to something different and useful (based on community feedback!) <br>
+# TODOs & Planned features for upcoming version
+- [x] add a basic ascii cli progress bar <br>
+- [x] add customization for display time to dynamically format to human readable form <br>
+- [x] add cross platform sound alert to notify user when the process completes <br>
+- [ ] add examples in readme for forEach, for/in, for/of, do/while and other types of loops in js and node <br>
+- [ ] add support for async loops in js and node <br>
+- [ ] add support for indeterminate loops in js and node <br>
+- [ ] add features to make the cli ui even better <br>
+- [ ] add color and spinner if the running console/cli supports colorization <br>
+- [ ] improve the sound alert and support for all os without any package dependency <br>
+- [ ] replace sound alert system to something different and useful (based on community feedback!) <br>
 (as the sound feature is not that useful for systems running in server, vm or pipeline based applications)
+- [ ] convert codebase to class & object to allow multiple progress-bar instances and nested progress-bars for subtasks (v2)
