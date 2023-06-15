@@ -6,6 +6,8 @@
 
 CLI Progress Bar for NodeJS and JavaScript to track Time, ETA and Steps for any long running jobs in any loops in JS, NodeJS code
 
+[![NPM](https://nodei.co/npm/progress-bar-cli.png?mini=true)](https://nodei.co/npm/progress-bar-cli/)
+
 Did you ever encounter long running processes or jobs running inside loops in javascript or nodejs? Did you ever encounter tasks where nodejs scripts are running in a server, making multiple api calls in long running loops?
 
 If you are tired of sitting and waiting for these processes and not knowing when this kind of job/loop will end. If you want to have a metrics that will show you the current iteration number of the loop, eta of the job, time elapsed, time to finish, estimated total time along with a cool cli progress bar, and even notify you with an alert sound when the job ends... then you are at the right place!
